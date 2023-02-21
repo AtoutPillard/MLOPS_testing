@@ -1,0 +1,8 @@
+Flask==2.0.1
+joblib==1.2.0
+nltk==3.7
+numpy==1.21.0
+pandas==1.5.3
+prometheus_flask_exporter==0.21.0
+scikit_learn==1.2.1
+xgboost==0.90

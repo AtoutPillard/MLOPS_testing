@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "986fd9c6-ea52-4102-92d4-bddde8311f30",
+		"name": "ANIME_RATING_PREDICTION_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "predict rating",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Cowboy Bebop",
+							"type": "text"
+						},
+						{
+							"key": "genders",
+							"value": "['Action', 'Adventure', 'Comedy', 'Drama', 'Sci-Fi', 'Space']",
+							"type": "text"
+						},
+						{
+							"key": "synopsis",
+							"value": "In the year 2071, humanity has colonized several of the planets and moons of the solar system leaving the now uninhabitable surface of planet Earth behind. The Inter Solar System Police attempts to keep peace in the galaxy, aided in part by outlaw bounty hunters, referred to as \"Cowboys.\" The ragtag team aboard the spaceship Bebop are two such individuals. \\r\\n  \\r\\nMellow and carefree Spike Spiegel is balanced by his boisterous, pragmatic partner Jet Black as the pair makes a living chasing bounties and collecting rewards. Thrown off course by the addition of new members that they meet in their travels—Ein, a genetically engineered, highly intelligent Welsh Corgi; femme fatale Faye Valentine, an enigmatic trickster with memory loss; and the strange computer whiz kid Edward Wong—the crew embarks on thrilling adventures that unravel each member\\'s dark and mysterious past little by little. \\r\\n \\r\\nWell-balanced with high density action and light-hearted comedy,  Cowboy Bebop  is a space Western classic and an homage to the smooth and improvised music it is named after. \\r\\n \\r\\n[Written by MAL Rewrite]",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "TV",
+							"type": "text"
+						},
+						{
+							"key": "producers",
+							"value": "['Bandai Visual']",
+							"type": "text"
+						},
+						{
+							"key": "studio",
+							"value": "['Sunrise']",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		}
+	]
+}

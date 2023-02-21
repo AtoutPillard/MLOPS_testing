@@ -1,0 +1,15 @@
+version: '3.8'
+
+networks:
+ monitoring:
+  driver: bridge
+
+services:
+ api-prediction:
+  build: ./backend_rating
+  container_name: api-prediction
+  ports:
+   - 5000:5000
+  restart: unless-stopped
+  networks:
+   - monitoring

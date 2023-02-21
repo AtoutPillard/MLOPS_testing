@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anime Rating Prediction API</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Change the font style */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #1f1f1e
+        }
+
+        /* Add some color to the page */
+        .header {
+            background-color: #800020;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: white;
+            font-size: 36px;
+        }
+        .header p {
+            color: white;
+            font-size: 18px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .container h2 {
+            font-size: 28px;
+        }
+        .container p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Anime Rating Prediction API</h1>
+        <p>Get accurate anime ratings based on different parameters</p>
+    </div>
+
+    <div class="container">
+        <h2>How it Works</h2>
+        <p>The API uses the information provided by the user to predict the rating of an anime. The following parameters are used to make the prediction:</p>
+        <ul>
+            <li>title</li>
+            <li>genders</li>
+            <li>studio</li>
+            <li>producers</li>
+            <li>synopsis</li>
+            <li>type</li>
+        </ul>
+        <p>To get a prediction, you can use a POST request to the endpoint <code>/</code> and include the information in the request body. The API will return the predicted rating in a JSON format.</p>
+        <p><strong>[There must be at least one of these informations]</strong></p>
+        <div>
+            <a href="http://localhost:5000/metrics">Access prometheus metrics ></a>
+        </div>
+    </div>
+</body>
+</html>
