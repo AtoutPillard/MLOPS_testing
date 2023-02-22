@@ -22,7 +22,6 @@ pipeline {
                 bat 'git checkout dev'
                 bat 'git pull'
                 bat "git merge ${env.GIT_BRANCH}"
-                bat 'git commit -m "Merge feature branch into dev"'
                 bat 'git push origin dev'
                 bat "git branch -d ${env.GIT_BRANCH}"
             }
@@ -36,7 +35,6 @@ pipeline {
                 bat 'git checkout main'
                 bat 'git pull'
                 bat 'git merge dev'
-                bat 'git commit -m "Merge dev branch into main"'
                 bat 'git push origin main'
             }
         }
