@@ -19,6 +19,7 @@ pipeline {
         }
         stage('Push to Develop') {
             steps {
+                bat 'git status'
                 bat 'git checkout dev'
                 bat 'git pull'
                 bat "git merge ${env.GIT_BRANCH}"
