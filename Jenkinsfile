@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Login to Docker hub"){
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'shinbidocker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat "docker login -u $USERNAME -p $PASSWORD"
-                }
-                
-            }
-        }
         stage('Building and unit testing'){
             steps {
                 bat "git checkout ${env.GIT_BRANCH}"
@@ -45,7 +37,6 @@ pipeline {
                 dir('backend_rating') {
                     bat 'docker build -t shinbi/prediction_api:latest .'
                     bat 'docker run -p 5000:5000 shinbi/prediction_api:latest'
-                    bat 'docker push shinbi/prediction_api:latest' 
                 }
                 bat 'docker-compose up'
             }
