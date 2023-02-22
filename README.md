@@ -49,3 +49,5 @@ Note :
     - These details can be seen directly on browser at <http://localhost:5000>
     - An example of possible values is available in ./backend_rating/model.py with the test_predict variable
     - If you want to test the predict endpoint, you can use the Postman tool. To make it easier, you can import the Postman collection file located in ./backend_rating/postman. It's a ready to go test who work with the API
+
+# Test 1
