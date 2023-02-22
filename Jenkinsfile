@@ -11,10 +11,9 @@ pipeline {
         }
         stage('Push to Develop') {
             steps {
-                bat 'git switch -c feature'
                 bat 'git checkout dev'
                 bat 'git pull'
-                bat "git merge feature"
+                bat "git merge ${env.GIT_BRANCH}"
                 bat 'git push origin dev'
                 bat "git branch -d ${env.GIT_BRANCH}"
             }
