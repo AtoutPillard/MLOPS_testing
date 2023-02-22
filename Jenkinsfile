@@ -23,7 +23,7 @@ pipeline {
                 bat 'git checkout dev'
                 bat 'git pull'
                 bat "git merge ${env.GIT_BRANCH}"
-                bat 'git push origin dev'
+                bat 'git push'
                 bat "git branch -d ${env.GIT_BRANCH}"
             }
         }
