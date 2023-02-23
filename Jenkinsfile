@@ -11,11 +11,11 @@ pipeline {
         }
         stage('Push to Develop') {
             steps {
-                bat 'git checkout dev'
-                bat 'git pull'
-                bat "git merge ${env.GIT_BRANCH}"
                 withCredentials([usernamePassword(credentialsId: 'ci-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    bat 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com:AtoutPillard/MLOPS_testing.git HEAD:dev'
+                    bat 'git checkout dev'
+                    bat 'git pull'
+                    bat "git merge ${env.GIT_BRANCH}"
+                    bat 'git push origin dev'
                 }
             }
         }
