@@ -42,12 +42,8 @@ pipeline {
         }
         stage('Pushing to Dockerhub') {
             steps {
-                dir('backend_rating') {
-                    bat 'docker build -t shinbi/prediction_api:latest .'
-                    bat 'docker run -p 5000:5000 shinbi/prediction_api:latest'
-                    bat 'docker push shinbi/prediction_api:latest' 
-                }
                 bat 'docker-compose up'
+                bat 'docker push shinbi/prediction_api:latest'
             }
         }
     }
