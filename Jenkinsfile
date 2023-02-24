@@ -28,28 +28,16 @@ pipeline {
                 bat 'git push origin dev'
             }
         }
-        stage('testing') {
+        stage('User Acceptance') {
+            input {
+                message "Proceed to push to main"
+                ok "Yes"
+            }
             steps {
-                script {
-                    def inputName
-                    def userInput = input(
-                            id: 'userInput', message: 'Enter the version of the release:?',
-                            parameters: [
-                                string(defaultValue: 'None',
-                                        description: 'Name of the version',
-                                        name: 'Version')
-                            ])
-
-                    inputName = userInput.Version?:''
-                    bat 'git checkout dev'
-                    bat "git checkout -b release/version_${inputName}"
-                    bat 'git merge dev'
-                    bat "git push origin release/version_${inputName}"
-                    bat 'git checkout main'
-                    bat 'git pull'
-                    bat "git merge release/version_${inputName}"
-                    bat 'git push origin main'
-                }
+                bat 'git checkout main'
+                bat 'git pull'
+                bat 'git merge dev'
+                bat 'git push origin main'
             }
         }
         stage('Pushing to Dockerhub') {
