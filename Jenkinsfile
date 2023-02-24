@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("Login to Docker hub"){
             steps {
-                bat "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PWD"      
+                bat "docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PWD}"      
             }
         }
         stage('Building and unit testing'){
