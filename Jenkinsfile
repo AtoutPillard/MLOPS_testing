@@ -35,7 +35,7 @@ pipeline {
                     def userInput = input(
                             id: 'userInput', message: 'Enter the version of the release:?',
                             parameters: [
-                                string(defaultValue: 'None',
+                                string(defaultValue: '1',
                                         description: 'Name of the version',
                                         name: 'Version')
                             ])
