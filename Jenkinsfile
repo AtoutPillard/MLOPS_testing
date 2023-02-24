@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Pushing to Dockerhub') {
             steps {
-                bat 'docker-compose up'
+                bat 'docker-compose up --build -d'
                 bat 'docker push shinbi/prediction_api:latest'
             }
         }
