@@ -22,12 +22,10 @@ pipeline {
         }
         stage('Push to Develop') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'ci-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    bat 'git checkout dev'
-                    bat 'git pull'
-                    bat "git merge ${env.GIT_BRANCH}"
-                    bat 'git push origin dev'
-                }
+                bat 'git checkout dev'
+                bat 'git pull'
+                bat "git merge ${env.GIT_BRANCH}"
+                bat 'git push origin dev'
             }
         }
         stage('testing') {
