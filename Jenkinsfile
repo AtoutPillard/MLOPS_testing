@@ -1,12 +1,12 @@
 pipeline {
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('shinbidocker')
+    }
     stages {
         stage("Login to Docker hub"){
             steps {
-                withCredentials([usernamePassword(credentialsId: 'shinbidocker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat "docker login -u $USERNAME -p $PASSWORD"
-                }
-                
+                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
             }
         }
         stage('Building and unit testing'){
