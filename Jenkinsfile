@@ -1,14 +1,12 @@
 pipeline {
     agent any
     environment {
-        DOCKER_ID = credentials('dockerhub')
-        USERNAME = "${DOCKER_ID_USR}"
-        PASSWORD = "${DOCKER_ID_PSW}"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
     stages {
         stage("Login to Docker hub"){
             steps {
-                bat 'docker login -u $USERNAME -p $PASSWORD'      
+                bat "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PWD"      
             }
         }
         stage('Building and unit testing'){
