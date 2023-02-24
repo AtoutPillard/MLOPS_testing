@@ -7,6 +7,7 @@ networks:
 services:
  api-prediction:
   build: ./backend_rating
+  image: shinbi/prediction_api:latest
   container_name: api-prediction
   ports:
    - 5000:5000
