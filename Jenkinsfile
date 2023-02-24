@@ -6,7 +6,10 @@ pipeline {
     stages {
         stage("Login to Docker hub"){
             steps {
-                bat "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    bat "docker login -u $USERNAME -p $PASSWORD"
+                }
+                
             }
         }
         stage('Building and unit testing'){
@@ -59,6 +62,11 @@ pipeline {
                 }
                 bat 'docker-compose up'
             }
+        }
+    }
+    post {
+        always {
+            bat 'docker logout'
         }
     }
 }
