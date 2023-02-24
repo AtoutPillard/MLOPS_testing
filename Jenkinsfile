@@ -26,6 +26,7 @@ pipeline {
                 bat 'git pull'
                 bat "git merge ${env.GIT_BRANCH}"
                 bat 'git push origin dev'
+                bat "git push origin –delete ${env.GIT_BRANCH}"
             }
         }
         stage('User Acceptance') {
