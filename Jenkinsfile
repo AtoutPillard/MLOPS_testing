@@ -7,9 +7,8 @@ pipeline {
         stage("Login to Docker hub"){
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat "docker login -u $USERNAME -p $PASSWORD"
-                }
-                
+                        bat "docker login -u $USERNAME -p $PASSWORD"
+                }    
             }
         }
         stage('Building and unit testing'){
@@ -26,6 +25,7 @@ pipeline {
                 bat 'git pull'
                 bat "git merge ${env.GIT_BRANCH}"
                 bat 'git push origin dev'
+                bat "git push origin –delete ${env.GIT_BRANCH}"
             }
         }
         stage('User Acceptance') {
@@ -42,12 +42,8 @@ pipeline {
         }
         stage('Pushing to Dockerhub') {
             steps {
-                dir('backend_rating') {
-                    bat 'docker build -t shinbi/prediction_api:latest .'
-                    bat 'docker run -p 5000:5000 shinbi/prediction_api:latest'
-                    bat 'docker push shinbi/prediction_api:latest' 
-                }
                 bat 'docker-compose up'
+                bat 'docker push shinbi/prediction_api:latest'
             }
         }
     }
