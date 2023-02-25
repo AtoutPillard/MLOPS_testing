@@ -1,4 +1,4 @@
-# MLOPS-PROJECT
+# MLOPS-PROJECTs
 
 ## 1- Prerequisite
 
